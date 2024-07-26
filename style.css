@@ -1,0 +1,66 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Tableau en dessous du titre */
+  font-family: Arial, sans-serif;
+  background-color: #f3f3f3;;
+}
+
+.header {
+  margin: 4%;
+  text-align: center;
+}
+
+.header h1 {
+  text-align: right;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.table th {
+  background-color: #c1c1c1;
+}
+
+tr:nth-child(even) {
+  background-color: #e3e3e3;
+}
+
+.button {
+  font-size: medium;
+  vertical-align: middle;
+  color: transparent;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Olympic_rings_without_rims.svg/langfr-270px-Olympic_rings_without_rims.svg.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.checked {
+  font-weight: bold;
+  color: black;
+}
+
+.transparent {
+  opacity: 0.2; /* 20% d'opacité, soit 80% de transparence */
+}

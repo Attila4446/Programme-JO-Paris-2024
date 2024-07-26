@@ -1,0 +1,46 @@
+body, html {
+    margin-top: 1%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 80vh;
+    background-color: #f0f0f0;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {                           /*Position du titre*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;  /*Longueur du cadre par rapport à la page*/
+    background-color: #e3e3e3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.header h1 {
+    color: black;
+    text-align: center;
+}
+
+.content {                          /*créer une case pour mettre le tableau*/
+    border: 1px solid #ccc;
+    margin-top: 25vh;
+}
+
+tr, td {                            /*Délimité les boutons par des cases*/
+    margin-top: 10%;
+    border: 1px solid #dddddd;
+    padding: 8px;
+}
+
+
+button {                            /*Désigne des boutons*/
+    display: flex;
+    background-color: #4CAF50;
+    border-color: #047107;
+    border-radius: 12px;
+    color: #ffffff;
+    padding: 16px 32px;
+    margin:  4px 3px;
+}
