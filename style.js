@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener("DOMContentLoaded", () => {
     const sportsDurations = {
         "Natation": 15,
-        "Escrime": 15,
+        "Escrime": 20,
         "Judo": 10,
-        "Tennis de table": 60,
+        "Tennis de Table": 60,
         "Basket": 90,
         "Volleyball": 90
     };
