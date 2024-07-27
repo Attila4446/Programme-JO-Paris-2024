@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const getSportDuration = (sport) => {
-        return sportsDurations[sport.trim()] || defaultDuration;
+        return sportsDurations[sport] || defaultDuration;
     };
 
     const isMoreThanMinutesAgo = (timeStr, minutes) => {
