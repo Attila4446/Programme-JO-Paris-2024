@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
-// Par Chat GPTdocument.addEventListener("DOMContentLoaded", () => {
+// Par Chat GPT
+document.addEventListener("DOMContentLoaded", () => {
     const sportsDurations = {
         "Natation": 15,
         "Escrime": 15,
