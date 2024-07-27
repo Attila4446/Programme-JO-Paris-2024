@@ -43,10 +43,36 @@ document.addEventListener("DOMContentLoaded", () => {
         return diffMinutes > 30;
     };
 
+    // Fonction pour vérifier si une heure donnée est dans les 30 minutes après le début
+    const isWithin30Minutes = (timeStr) => {
+        const [eventHours, eventMinutes] = timeStr.split(':').map(Number);
+        const eventTime = new Date();
+        eventTime.setHours(eventHours, eventMinutes, 0, 0);
+
+        const now = new Date();
+        const diffMinutes = (now - eventTime) / (1000 * 60); // Différence en minutes
+
+        return diffMinutes <= 30 && diffMinutes >= 0;
+    };
+
     // Fonction pour déplacer une ligne à la fin du tableau
     const moveRowToEnd = (row) => {
         const tbody = row.parentNode;
         tbody.appendChild(row);
+    };
+
+    // Fonction pour alterner l'opacité d'une ligne spécifique
+    const alternateOpacityForRow = (row) => {
+        let isTransparent = false;
+        const intervalId = setInterval(() => {
+            if (isWithin30Minutes(row.cells[1].textContent.trim())) {
+                row.style.opacity = isTransparent ? '0.2' : '1';
+                isTransparent = !isTransparent;
+            } else {
+                clearInterval(intervalId);
+                row.style.opacity = '1'; // Assurer que la ligne est normale si l'événement est passé
+            }
+        }, 1000); // Alterner toutes les secondes
     };
 
     // Obtenez la date actuelle et l'heure
@@ -57,15 +83,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const pageDateStr = document.body.getAttribute('data-date');
 
     // Appliquer la transparence et déplacer les lignes passées à la fin du tableau
-    if (currentDateStr >= pageDateStr) {
-        document.querySelectorAll('.table tbody tr').forEach(row => {
-            const timeCell = row.cells[1];
-            const timeStr = timeCell.textContent.trim();
+    document.querySelectorAll('.table tbody tr').forEach(row => {
+        const timeCell = row.cells[1];
+        const timeStr = timeCell.textContent.trim();
 
+        if (currentDateStr >= pageDateStr) {
             if (isMoreThan30MinutesAgo(timeStr)) {
                 row.style.opacity = '0.2'; // 80% de transparence
                 moveRowToEnd(row); // Déplacer la ligne à la fin du tableau
+            } else if (isWithin30Minutes(timeStr)) {
+                alternateOpacityForRow(row); // Appliquer l'alternance d'opacité uniquement à la ligne concernée
             }
-        });
-    }
+        }
+    });
 });
