@@ -44,3 +44,16 @@ button {                            /*Désigne des boutons*/
     padding: 16px 32px;
     margin:  4px 3px;
 }
+
+
+/* Style pour le bouton actif */
+.active-button {
+    background-color: #196c19; /* Vert foncé */
+    color: white;
+}
+
+/* Style pour le bouton normal */
+.normal-button {
+    background-color: #4CAF50; /* Vert normal */
+    color: white;
+}
