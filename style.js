@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
         "Natation": 15,
         "Escrime": 20,
         "Judo": 10,
-        "Tennis de Table": 60,
         "Basket": 90,
         "Volleyball": 90
     };
