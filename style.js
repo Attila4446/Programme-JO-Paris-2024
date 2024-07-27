@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
-// Par Chat GPT
-document.addEventListener("DOMContentLoaded", () => {
+// Par Chat GPTdocument.addEventListener("DOMContentLoaded", () => {
     const sportsDurations = {
         "Natation": 15,
-        "Escrime": 20,
+        "Escrime": 15,
         "Judo": 10,
+        "Tennis de table": 60,
         "Basket": 90,
         "Volleyball": 90
     };
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const getSportDuration = (sport) => {
-        return sportsDurations[sport] || defaultDuration;
+        return sportsDurations[sport.trim()] || defaultDuration;
     };
 
     const isMoreThanMinutesAgo = (timeStr, minutes) => {
