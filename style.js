@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const getSportDuration = (sport) => {
-        return sportsDurations[sport] || defaultDuration;
+        return sportsDurations[sport.trim()] || defaultDuration;
     };
 
     const isMoreThanMinutesAgo = (timeStr, minutes) => {
@@ -59,14 +59,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const pageDateStr = document.body.getAttribute('data-date');
     const currentDateStr = new Date().toISOString().split('T')[0];
 
-    document.querySelectorAll('.table tbody tr').forEach(row => {
-        const timeCell = row.cells[1];
-        const sportCell = row.cells[2];
-        const timeStr = timeCell.textContent.trim();
-        const sportStr = sportCell.textContent.trim();
-        const duration = getSportDuration(sportStr);
-        
-        if (currentDateStr >= pageDateStr) {
+    if (currentDateStr === pageDateStr) {
+        document.querySelectorAll('.table tbody tr').forEach(row => {
+            const timeCell = row.cells[1];
+            const sportCell = row.cells[2];
+            const timeStr = timeCell.textContent.trim();
+            const sportStr = sportCell.textContent.trim();
+            const duration = getSportDuration(sportStr);
+
             if (isMoreThanMinutesAgo(timeStr, duration)) {
                 row.style.opacity = '0.2';
                 setTimeout(() => {
@@ -86,6 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 }, 1000);
             }
-        }
-    });
+        });
+    }
 });
