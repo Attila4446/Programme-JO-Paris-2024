@@ -24,12 +24,12 @@ document.addEventListener('DOMContentLoaded', function() {
 // Par Chat GPT
 document.addEventListener("DOMContentLoaded", () => {
     const sportsDurations = {
-        "Natation": 15,
-        "Escrime": 15,
-        "Judo": 10,
+        "Natation": 20,
+        "Escrime": 20,
+        "Judo": 15,
         "Tennis de table": 60,
         "Basket": 90,
-        "Volleyball": 90
+        "Volleyball": 90,
     };
 
     const defaultDuration = 30;
